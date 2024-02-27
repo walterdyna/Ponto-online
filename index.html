@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./script.js" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Pronto Grupo Telemed</title>
+  </head>
+  <body>
+    <div class="caixaMaior">
+      <div class="logo">
+        <img class="img" src="./assets/LOGOMARCA.png" alt="logo" />
+      </div>
+
+      <div>
+        <h1 class="title">Registre seu ponto</h1>
+      </div>
+
+      <div class="nomesDoPonto">
+        <form id="pontoForm">
+          <label class="seuNome" for="nome">Selecione o seu nome:</label>
+          <select id="nome" name="nome">
+            <option value="nenhum">Nenhum</option>
+            <option value="Alex">Walter Dyna (Alex)</option>
+            )
+            <option value="Alessandro">Alessandro Costa</option>
+            <option value="Bel">Belith Bernardo</option>
+            <option value="Nany">Nany Rodrigues</option>
+            <option value="Nany">Kelly'Anna Almeida</option></select
+          ><br /><br />
+
+          <label class="dataEHoraAtual" for="dataHora"
+            >Data e Hora Atual:</label
+          >
+          <h2 id="dataHoraNumerica" class="dataNumerica"></h2>
+          <h2 id="dataHoraExtenso" class="dataEHoraAtual"></h2>
+
+          <br /><br />
+          <button
+            class="enviaEmail"
+            type="button"
+            onclick="enviarBatidaPonto()"
+          >
+            Enviar Batida de Ponto
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script src="./script.js"></script>
+</html>

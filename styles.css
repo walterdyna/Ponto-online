@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, rgb(0, 128, 0), rgb(0, 0, 128)),
+                rgba(255, 255, 255, 0.4); /* Cor de fundo quase transparente */
+    background-blend-mode: overlay; /* Mistura o fundo com o degradê */
+    background-attachment: fixed; /* Isso mantém o fundo fixo enquanto o conteúdo rola */
+    background-size: cover; /* Isso garante que o degradê cubra todo o fundo */
+    margin: 0; /* Isso remove as margens padrão do corpo */
+    padding: 0; /* Isso remove o preenchimento padrão do corpo */
+}
+
+.caixaMaior {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    margin-bottom: -80px;
+    }
+
+    img {
+        width: 700px;
+    }
+
+.title {
+    font-size: 70px;
+    margin-bottom: 5px;
+}
+
+.nomesDoPonto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.seuNome,
+.dataEHoraAtual {
+    font-size: 60px;
+    margin-bottom: 5px;
+}
+
+#nome {
+    font-size: 40px;
+    padding: 5px;
+    border-radius: 30px;
+    background: linear-gradient(to right, rgb(0, 128, 0), rgb(0, 0, 128));
+    margin-bottom: 5px;
+}
+
+.enviaEmail {
+    font-size: 40px;
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(to right, rgb(0, 128, 0), rgb(0, 0, 128));
+    cursor: pointer;
+    margin-top: -10px;
+}
+
+.dataNumerica,
+.dataEHoraAtual {
+    font-size: 50px;
+    color: rgb(41, 41, 240);
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+/* Estilos para telas menores que 500px */
+@media screen and (max-width: 500px) {
+    .logo img {
+        width: 100%;
+        max-width: 200px;
+        margin-bottom: 20px;
+    }
+
+    .title {
+        font-size: 40px;
+    }
+
+    .seuNome,
+    .dataEHoraAtual {
+        font-size: 30px;
+    }
+
+    #nome {
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+    .enviaEmail {
+        font-size: 20px;
+    }
+}
+
+/* Estilos para telas menores, como celulares */
+@media screen and (max-width: 500px) {
+    .dataEHoraAtual {
+        display: none; /* Esconde a data por extenso em telas menores */
+    }
+
+    .dataNumerica {
+        display: block; /* Exibe a data numérica em telas menores */
+    }
+}
+
+/* Estilos para telas maiores, como desktops */
+@media screen and (min-width: 501px) {
+    .dataNumerica {
+        display: none; /* Esconde a data numérica em telas maiores */
+    }
+
+    .dataEHoraAtual {
+        display: block; /* Exibe a data por extenso em telas maiores */
+    }
+}
