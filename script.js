@@ -37,23 +37,28 @@ document.addEventListener('DOMContentLoaded', () => {
     atualizarDataHora();
 });
 
-function enviarBatidaPonto() {
-    let nome = document.getElementById('nome').value;
-    let dataHoraAtual = document.getElementById('dataHora').value;
-    let corpoEmail = `Olá,\n\nO funcionário ${nome} bateu o ponto em: ${dataHoraAtual}`;
-    console.log('Enviando batida de ponto:', corpoEmail);
-    // Aqui você chamaria uma função no seu servidor back-end para enviar o e-mail
+async function enviarEmail(nome, horario) {
+    Email.send({
+        SecureToken : "https://smtpjs.com/v3/smtp.js",
+        To : 'pontogrupotelemed@gmail.com',
+        From : "pontogrupotelemed@gmail.com",
+        Subject : "Batida de Ponto",
+        Body : `O funcionário ${nome} bateu o ponto às ${horario}.`,
+        Host : "smtp.gmail.com",
+        Port : 587,
+        Username : "pontogrupotelemed@gmail.com",
+        Password : "140305ca",
+        TLS : true
+    }).then(
+        message => console.log('E-mail enviado:', message)
+    ).catch(
+        error => console.error('Erro ao enviar e-mail:', error)
+    );
 }
 
 
-Email.send({
-    Host : "smtp.elasticemail.com",
-    Username : "pontogrupotelemed@gmail.com",
-    Password : "D2368604ECCAC83643DFFCFDEC26FBE98406",
-    To : 'pontogrupotelemed@gmail.com',
-    From : "pontogrupotelemed@gmail.com",
-    Subject : "This is the subject",
-    Body : "And this is the body"
-}).then(
-  message => alert(message)
-);
+function enviarBatidaPonto() {
+    let nome = document.getElementById('nome').value;
+    let dataHoraAtual = new Date().toLocaleString();
+    enviarEmail(nome, dataHoraAtual);
+}
